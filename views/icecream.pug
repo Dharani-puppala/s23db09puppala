@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  - let results = [ {cone:"small", Flavour: "mint choco", price:50 }, {cone:"medium", Flavour: " Blueberry", price:100},{cone:"large", Flavour: " vallina", price:60 } ]
+  .container-fluid 
+    .row
+      each icecerm, index in results
+        .col-sm-2(onclick = `buy(${index})`)
+          p cone:  #{icecerm.cone}
+          p Flavour: #{icecerm.Flavour}
+          p price: #{icecerm.price}
+  script.
+    function buy(index) {
+      alert(`you purchased item ${index}`);
+    }

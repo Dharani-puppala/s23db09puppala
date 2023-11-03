@@ -1,0 +1,11 @@
+extends layout
+
+
+
+block content
+  h1= title
+  - var image_names = ['blueberry.jpg', 'choco.jpg','mint.jpg','strawbeery.jpg','vanila.jpg']
+  - for (let x = 0; x <= 2; x++)
+    - var othrimage  = Math.floor(Math.random() * 5)
+    - var pic = image_names[othrimage]
+    img(src=`/images/${pic}`, alt=pic, width='300', height='300')
