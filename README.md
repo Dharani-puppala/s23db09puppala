@@ -1,8 +1,5 @@
 # f23wb09puppala
 Dharani Puppala
-https://f23wb09puppala.onrender.com
-class Resource :I
+https://s23db09puppala.onrender.com
 
--cone(String)
--Flavour(String)
--price(Integer)
+ 
