@@ -1,8 +1,20 @@
 var icecream = require('../models/icecream');
 // List of all icecreams
-exports.icecream_list = function(req, res) {
-res.send('NOT IMPLEMENTED: icecream list');
-};
+// exports.icecream_list = function(req, res) {
+// res.send('NOT IMPLEMENTED: icecream list');
+// };
+
+exports.icecream_list = async function(req, res) {
+    try{
+    theicecreams = await icecream.find();
+    res.send(theicecreams);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+
 // for a specific icecream.
 exports.icecream_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: icecream detail: ' + req.params.id);
