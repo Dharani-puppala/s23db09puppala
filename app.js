@@ -1,5 +1,5 @@
 var createError = require('http-errors');
-var express = require('');
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var icecreamRouter = require('./routes/icecreams');
+var icecreamRouter = require('./routes/icecream');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var icecream = require("./models/icecream");
