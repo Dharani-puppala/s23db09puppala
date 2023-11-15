@@ -19,5 +19,7 @@ router.get('/icecreams/:id', icecream_controller.icecream_detail);
 router.get('/icecreams', icecream_controller.icecream_list);
 // GET detail icecream page */
 router.get('/detail', icecream_controller.icecream_view_one_Page)
+/* GET create icecream page */
+router.get('/create', icecream_controller.icecream_create_Page);
 module.exports = router;
 
