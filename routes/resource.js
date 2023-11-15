@@ -17,5 +17,7 @@ router.put('/icecreams/:id', icecream_controller.icecream_update_put);
 router.get('/icecreams/:id', icecream_controller.icecream_detail);
 // GET request for list of all icecream items.
 router.get('/icecreams', icecream_controller.icecream_list);
+// GET detail icecream page */
+router.get('/detail', icecream_controller.icecream_view_one_Page)
 module.exports = router;
 

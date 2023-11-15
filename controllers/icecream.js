@@ -24,16 +24,35 @@ res.send('NOT IMPLEMENTED: icecream detail: ' + req.params.id);
 // res.send('NOT IMPLEMENTED: icecream create POST');
 // };
 // for a specific icecream.
+// exports.icecream_detail = async function(req, res) {
+//     console.log("detail" + req.params.id)
+//     try {
+//     result = await icecream.findById( req.params.id)
+//     res.send(result)
+//     } catch (error) {
+//     res.status(500)
+//     res.send(`{"error": document for id ${req.params.id} not found`);
+//     }
+//     };
 exports.icecream_detail = async function(req, res) {
-    console.log("detail" + req.params.id)
+    console.log("detail" + req.params.id); // Log the detail and the id parameter from the request.
+  
     try {
-    result = await icecream.findById( req.params.id)
-    res.send(result)
+        
+        const result = await icecream.findById(req.params.id);
+  
+        if (result) {
+           
+            res.send(result);
+        } else {
+            
+            res.status(404).send(`{"error": "Document for id ${req.params.id} not found"}`);
+        }
     } catch (error) {
-    res.status(500)
-    res.send(`{"error": document for id ${req.params.id} not found`);
+        // If an error occurs during the database query, send a 500 status and an error message.
+        res.status(500).send(`{"error": "Internal Server Error"}`);
     }
-    };
+  };
     
 // Handle icecream create on POST.
 exports.icecream_create_post = async function(req, res) {
@@ -99,7 +118,7 @@ res.status(500);
 res.send(`{"error": ${err}}`);
 }
 };
-//Handle Costume delete on DELETE.
+//Handle icecream delete on DELETE.
 exports.icecream_delete = async function(req, res) {
     console.log("delete " + req.params.id)
     try {
@@ -111,3 +130,18 @@ exports.icecream_delete = async function(req, res) {
     res.send(`{"error": Error deleting ${err}}`);
     }
     };
+
+// Handle a show one view with id specified by query
+exports.icecream_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await icecream.findById( req.query.id)
+    console.log(result);
+    res.render('icecreamdetail',
+    { title: 'icecream Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };    

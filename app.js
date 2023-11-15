@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var icecreamRouter = require('./routes/icecream');
+var icecreamsRouter = require('./routes/icecreams');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var icecream = require("./models/icecream");
@@ -74,6 +75,7 @@ app.use('/icecream', icecreamRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
 app.use('/resource', resourceRouter);
+app.use('/icecreams',icecreamsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
